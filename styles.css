@@ -4,6 +4,7 @@
   }
 }
 
+/*Set Nav Bar positioning and formatting*/
 body {
   background: #282828;
   color: #cfcfcf;
@@ -38,6 +39,7 @@ nav > ul {
   line-height: 1.8em;
 }
 
+/*Text Decoration for the Navigation Bar*/
 nav > ul > li > a {
   color: #cfcfcf;
   text-decoration: none;
@@ -47,6 +49,7 @@ nav > ul > li > a:hover {
   text-decoration: underline;
 }
 
+/*Set Main Content positioning and formatting*/
 .mainContent {
   margin-top: -1.5rem;
   padding-top: 1em;
@@ -57,6 +60,7 @@ nav > ul > li > a:hover {
   /*background-color: #000;*/
 }
 
+/*Text Decoration for headers*/
 section > header, section > h3 {
   text-decoration: underline;
   text-decoration-color: #04de80
@@ -74,6 +78,7 @@ p, header {
   margin-left: 1em;
 }
 
+/*Styling for the code blocks*/
 pre {
   display: inline-block;
   background: #181818;
@@ -96,6 +101,7 @@ p > code {
   line-height: 1.25;
 }
 
+/*Note block styling*/
 .note {
   background: #2966b6;
   color: #fff;
@@ -106,6 +112,7 @@ p > code {
   line-height: 1.25;
 }
 
+/*Extra text styling*/
 p > a {
   text-decoration: none;
   color: #04de80;
