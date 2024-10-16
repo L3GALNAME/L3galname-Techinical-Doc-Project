@@ -9,23 +9,180 @@
   <body>
     <main id="main-doc">
       <nav id="navbar">
-        <header></header>
+        <header><h1>GameMaker Manual</h1></header>
       </nav>
-      <section class="main-section">
-        <header></header>
+
+      <!--Main Content-->
+
+      <section class="main-section" id="Introduction">
+        <header><h2>Introduction</h2></header>
+
+        <p>GameMaker is a tool designed to empower you and your team to make new and innovative games 
+          as well as prototype ideas in the fastest and most intuitive way possible, across multiple 
+          target platforms. It is intended primarily as a tool for making 2D games - although 3D games 
+          are perfectly doable - and comes with a number of tools and editors to help you realise your 
+          dreams and ideas, with your final project being ported across multiple platforms from the 
+          same initial base resources.</p>
+        <p>For those that are new to the world of programming or who have never used any game creation 
+          tool before, GameMaker offers an intuitive and easy to use GML Visual interface of actions 
+          that allow you to start creating your own games very quickly using visual scripting:</p>
+        <p>If you are a more experienced - or less visual - programmer, then you can use the proprietary 
+          scripting language GML Code to create your games:</p>
+        <p>You can even combine both and mix GML Code functions with GML Visual actions, giving you 
+          a great deal of flexibility when it comes to how you write things. This is all laid out in 
+          an intuitive fashion, with different aspects of your game "chaining" together in the IDE 
+          to give you a unique and very visual representation of the workflow.</p>
       </section>
-      <section class="main-section">
-        <header></header>
+
+      <!----Contains the list elements---->
+      <section class="main-section" id="GML_Overview">
+        <header><h2>GML Overview</h2></header>
+
+        <p>This section of the manual contains all the information required to understand and use GML 
+          Code. The runtime functions in this language can be used to create your games and is added 
+          into objects from the Object Editor, although it can also be used along with GML Visual.</p>
+        <p>Each event has its own tab in the editor and you can add, edit, or remove code from them 
+          at any time (for more information on events see Object Events). The code itself must have 
+          a basic structure and can contain resource indices, variables, functions, expressions, keywords, 
+          etc. all of which are explained in the sections below. If you are a novice to programming 
+          or making the switch from GML Visual, it is recommended that you start with the page on Basic 
+          Code Structure and then read through all the other pages in this section, testing code from 
+          each one within GameMaker itself.</p>
+        <p>You can use Feather for intelligent code completion and error reporting in your GML Code 
+          scripts.</p>
+
+        <h3>Basics of GML Code</h3>
+        <ul>
+          <li>Basic Code Structure</li>
+          <li>Runtime Functions</li>
+        </ul>
+
+        <h3>Variables and Conditions</h3>
+        <ul>
+          <li>Variables and Variable Scope</li>
+          <li>Data Types</li>
+          <li>If / else and Conditional Operators</li>
+          <li>Expressions and Operators</li>
+        </ul>
       </section>
-      <section class="main-section">
-        <header></header>
+
+      <section class="main-section" id="Basic_Code_Structure">
+        <header><h2>Basic Code Structure</h2></header>
+
+        <p>Code is written in <i>blocks</i> and a typical code block consists of a set of instructions, called 
+          <i><u>statements</u></i>, that are then interpreted by GameMaker and used to make something happen within 
+          your game. That "something" can be as simple as adding 2 and 2 to get 4, or as complex as 
+          making an enemy run away when their health gets below a certain value. The actual structure 
+          of the program can vary greatly, depending on the functions it uses, but broken down to basics 
+          it just looks like this:</p>
+        <pre><code>
+          &lt;statement>;
+          &lt;statement>;
+          ...
+        </code></pre>
+        <p>Statements should be separated with a ';' symbol to prevent errors with <i><u>variable</u></i> declarations 
+          and to keep your code clean and tidy, and they can consist of variable declarations, <i><u>expressions</u></i> 
+          and calls to specific functions. You can also "group" statements together as a block using 
+          the curly brackets {} so that they run together, like in the following <i><u>conditional</u></i> example:</p>
+        <pre><code>
+          if (&lt;conditional>)
+          {
+              &lt;statement>;
+              &lt;statement>;
+              ...
+          }
+        </code></pre>
+        <p>NOTE The GameMaker Language will also accept <b>begin</b> and <b>end</b> instead of the curly brackets 
+          {}, although this is not typically the most common way to do it:</p>
+        <pre><code>
+          if (&lt;conditional>)
+          begin
+            &lt;statement>;
+            &lt;statement>;
+              ...
+          end
+        </code></pre>
+        <p>There are a number of different types of statements, expressions, conditionals and functions, 
+          all of which are discussed at length in subsequent sections of the manual.</p>
       </section>
-      <section class="main-section">
-        <header></header>
+
+      <section class="main-section" id="Variables_and_Variable_Scope">
+        <header><h2>Variables and Variable Scope</h2></header>
+        
+        <p>Variables are the basic unit for most programming operations. Like any programming language, 
+          GML uses them.</p>
+        <p>They are used to store information in the device's memory for later (or instant) use, and 
+          given a name so you can refer to them in runtime and script functions.</p>
+        <p>A variable in GML can store many different Data Types, like a real number (e.g.: <code>100</code>, <code>2.456575</code>, 
+          <code>-56</code>, etc.), a string (e.g.: <code>"Hello world!"</code>), an integer (e.g.: <code>1</code>, <code>556</code>, <code>-7</code>), or a boolean 
+          (<code>true</code> or <code>false</code>), as well as other things:</p>
+        <pre><code>
+          var _num = 126.4545;
+          var _str = "Hello World";
+          new_num = _num * 100;
+          global.my_string = _str + " I said";
+        </code></pre>
+        <p>You can also use variables to hold the values returned from functions, for example:</p>
+        <pre><code>
+          var _id = instance_nearest(x, y, obj_Tree);
+          root = sqrt(1000);
+          global.str = string_upper("Hello World");
+        </code></pre>
+        <p>So, a variable is something that we can name and use to store a value for later use in one 
+          or more operations.</p>
+        <p>A good "real world" example of a variable is the speed of something, e.g. the speed of a 
+          car. A car's speed is clearly variable, because at some point in time the car will be standing 
+          still (i.e. its speed is equal to 0), at another point in time the car will be driving (i.e. 
+          its speed is greater than 0). When the car accelerates or slows down, its speed changes. 
+          So it makes sense that if you want to store the car's speed in a GameMaker game that you 
+          store it in a variable. In the game, you'd e.g. set the variable to 0 when the game starts 
+          and change it whenever you want the car to change its speed.</p>
       </section>
-      <section class="main-section">
-        <header></header>
+
+      <section class="main-section" id="If_/_else_and_Conditional_Operators">
+        <header><h2>If / else and Conditional Operators</h2></header>
+
+        <p>A fundamental feature of most programming languages is the ability to ask a simple question 
+          that gives a boolean <b>true</b> or <b>false</b> answer, and in GML this is achieved using the <b>if</b> keyword. 
+          A simple <b>if</b> condition takes an <i><u>expression</u></i> and will perform one or more <i><u>statements</u></i> if the 
+          expression resolves as true, with the following basic form:</p>
+        <pre><code>
+          if (&lt;expression>)
+          {
+              &lt;statement>;
+              &lt;statement>;
+              ...
+          }
+        </code></pre>
+        <p>Here you are saying that if an expression resolves to <b>true</b> then do something. Note that 
+          the "then" part of the condition is <i>implicit</i>, but there is a then keyword that can be used 
+          (although it's almost always omitted), so you can also create conditionals like this:</p>
+        <pre><code>
+          if (&lt;expression>) then
+          {
+              &lt;statement>;
+              &lt;statement>;
+              ...
+          }
+        </code></pre>
+        <p>Apart from <b>if</b> and <b>then</b>, you can also use the <b>else</b> keyword to do something else if the expression 
+          being checked evaluates as <b>false</b>. This "<b>if... then... else...</b>" form looks like this:</p>
+        <pre><code>
+          if (&lt;expression>)
+          {
+              &lt;statement>;
+          }
+          else
+          {
+              &lt;statement>;
+          }
+        </code></pre>
+        <p>In this case the expression will be evaluated, and if it evaluates to <b>false</b>, the statement 
+          after <b>else</b> is executed, otherwise the initial statement is executed (it's <b>true</b>).</p>
+        <p>NOTE In the GameMaker language any value that is less than or equal to 0 will evaluate as 
+          <b>false</b>, while any value that is greater than 0 will evaluate as <b>true</b>.</p>
       </section>
+
     </main>
   </body>
 </html>
